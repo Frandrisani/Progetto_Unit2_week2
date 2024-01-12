@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="./Netflix-assets/assets/favicon.ico"
+      rel="icon"
+      type="image/x-icon"
+    />
+    <title>Netflix</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./scss/myScss.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+
+  <body class="bg-black">
+    <header>
+      <!-- * INIZIO NAVBAR -->
+      <nav class="navbar navbar-expand-lg bg-black">
+        <!-- Div con il logo e le voci del menu -->
+        <div class="container-fluid">
+          <img
+            src="./Netflix-assets/assets/netflix_logo.png"
+            alt="Neflix Logo"
+            width="100px"
+          />
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active text-white" aria-current="page" href="#"
+                >Home</a
+              >
+              <a class="nav-link text-white" href="#">Tv Shows</a>
+              <a class="nav-link text-white" href="#">Movies</a>
+              <a class="nav-link text-white" href="#">Recently Added</a>
+              <a class="nav-link text-white" href="#">My List</a>
+            </div>
+          </div>
+        </div>
+        <!-- div con la lente di ricerca, la notifica, KIDS e profilo -->
+        <div id="latoDxNav" class="d-flex">
+          <i class="bi bi-search text-white me-4 fs-5 text"></i>
+          <img
+            class="me-4"
+            src="./Netflix-assets/assets/kids_icon.png"
+            alt="Kids Icon"
+            width="30px"
+          />
+          <i class="bi bi-bell-fill text-white me-4 fs-5 text"></i>
+          <div
+            id="imgProfiloNav"
+            class="d-flex align-items-center"
+            data-bs-toggle="collapse"
+            data-bs-target="#profiloCollapse"
+            aria-expanded="false"
+          >
+            <img
+              src="./Netflix-assets/assets/avatar.png"
+              alt="Your Avatar Image"
+              width="30px"
+              class="me-1"
+            />
+            <i class="bi bi-caret-down-fill text-white me-4"></i>
+          </div>
+        </div>
+      </nav>
+      <!-- * FINE NAVBAR -->
+
+      <!-- Menu a comparsa per il profilo -->
+      <div class="collapse" id="profiloCollapse">
+        <div class="card card-body">
+          <a
+            href="Profile.html"
+            class="text-decoration-none text text-secondary"
+          >
+            <div class="d-flex align-items-center">
+              <img
+                src="./Netflix-assets/assets/avatar.png"
+                alt="Your Avatar Image"
+                width="30px"
+                class="me-2"
+              />
+              <span>Profile Settings</span>
+            </div>
+          </a>
+          <a
+            href="Setting.html"
+            class="text-decoration-none mt-2 text-secondary"
+          >
+            <div class="d-flex align-items-center">
+              <i class="bi bi-gear-fill me-2 text-secondary"></i>
+              <span>Settings</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </header>
+    <!-- * INIZIO MAIN -->
+    <main class="bg-black text-white">
+      <!-- * INIZIO SEZIONE 1: BARRA DEI GENERI -->
+      <section id="section1" class="container-fluid pt-5 px-5">
+        <div class="d-flex justify-content-between align-items-center">
+          <!-- Div con solo titpolo e drop -->
+          <div id="titoloEDrop" class="d-flex align-items-center">
+            <h3 class="me-4 fs-1 text">Tv Shows</h3>
+            <!-- DropDown Generi -->
+            <div class="dropdown">
+              <button
+                class="btn btn-outline-secondary dropdown-toggle fw-bolder text-white rounded-0 px-3"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Genres
+              </button>
+              <ul class="dropdown-menu bg-dark">
+                <li><a class="dropdown-item text-white" href="#">Anime</a></li>
+                <li><a class="dropdown-item text-white" href="#">Crime</a></li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Horror</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Fantasy</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">thriller</a>
+                </li>
+                <li>
+                  <a class="dropdown-item text-white" href="#">Sport</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- FINE Div con solo titpolo e drop -->
+          <!-- Div con radio per vista a lista o griglia -->
+          <div id="listOrGriglia">
+            <div
+              class="btn-group"
+              role="group"
+              aria-label="Basic radio toggle button group"
+            >
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio1"
+                autocomplete="off"
+                checked
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 px-3"
+                for="btnradio1"
+                ><i class="bi bi-list-nested"></i
+              ></label>
+
+              <input
+                type="radio"
+                class="btn-check"
+                name="btnradio"
+                id="btnradio2"
+                autocomplete="off"
+              />
+              <label
+                class="btn btn-outline-secondary rounded-0 px-3"
+                for="btnradio2"
+                ><i class="bi bi-grid-fill"></i
+              ></label>
+            </div>
+          </div>
+          <!-- FINE Div con radio per vista a lista o griglia -->
+        </div>
+      </section>
+      <!-- * FINE SEZIONE 1: BARRA DEI GENERI -->
+      <!-- * INIZIO SECTION 2: 3 ROW DI FILM -->
+      <section id="section2" class="container-fluid pt-5 px-5">
+        <!-- INIZIO PRIMA ROW -->
+        <div id="trendingNow" class="row gx-1">
+          <h5 class="mb-3">Trending Now</h5>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media0.webp"
+              alt="Sherlock"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media1.jpg"
+              alt="American Factory"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media2.webp"
+              alt="The good Place"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media3.webp"
+              alt="Genius of the modern world"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media4.jpg"
+              alt="Cuba and the cameraman"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media5.webp"
+              alt="the china hustle"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <!-- FINE PRIMA ROW -->
+        <!-- INIZIO SECONDA ROW -->
+        <div id="watchItAgain" class="row gx-1 mt-5">
+          <h5 class="mb-3">Watch It Again</h5>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media6.jpg"
+              alt="the social dilemma"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media7.webp"
+              alt="arog"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media8.webp"
+              alt="yahsi bati"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media9.jpg"
+              alt="connected"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media10.jpg"
+              alt="spy"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media11.jpg"
+              alt="the college"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <!-- FINE SECONDA ROW -->
+        <!-- INIZIO TERZA ROW -->
+        <div id="newReleases" class="row gx-1 mt-5">
+          <h5 class="mb-3">Trending Now</h5>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media12.jpg"
+              alt="tribes"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media13.jpg"
+              alt="narcos"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media14.webp"
+              alt="braking bad"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media15.jpg"
+              alt="explained"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media16.webp"
+              alt="ricky and morty"
+              class="img-fluid"
+            />
+          </div>
+          <div class="col-2">
+            <img
+              src="./Netflix-assets/assets/media/media17.jpg"
+              alt="the white helmets"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <!-- FINE TERZA ROW -->
+      </section>
+      <!-- * FINE SECTION 2: 3 ROW DI FILM -->
+    </main>
+    <!-- * FINE MAIN -->
+    <!-- * INIZIO FOOTER -->
+    <footer class="pt-5">
+      <div class="container w-50">
+        <div class="row">
+          <div class="col mb-4">
+            <a href="#">
+              <i
+                class="bi bi-facebook fs-3 text me-3 text-secondary-emphasis"
+              ></i
+            ></a>
+            <a href="#">
+              <i
+                class="bi bi-instagram fs-3 text me-3 text-secondary-emphasis"
+              ></i
+            ></a>
+            <a href="#">
+              <i
+                class="bi bi-twitter-x fs-3 text me-3 text-secondary-emphasis"
+              ></i
+            ></a>
+            <a href="#">
+              <i
+                class="bi bi-youtube fs-3 text me-3 text-secondary-emphasis"
+              ></i
+            ></a>
+          </div>
+          <div class="row mb-4">
+            <div class="col d-flex flex-column">
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Audio and subtitles</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Media Center</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Privacy</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Contact Us</a
+              >
+            </div>
+            <div class="col d-flex flex-column">
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Audio Description</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Investor Relations</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Legal Notices</a
+              >
+            </div>
+            <div class="col d-flex flex-column">
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Help Center</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Jobs</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Cookie Preferences</a
+              >
+            </div>
+            <div class="col d-flex flex-column">
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Gift Cards</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Terms of Use</a
+              >
+              <a href="#" class="text-decoration-none text-secondary-emphasis"
+                >Corporate Information</a
+              >
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col">
+              <button type="button" class="btn btn-outline-secondary rounded-0">
+                Service Code
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <p id="copyright"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- * FINE FOOTER -->
+    <!-- SCRIPT BOOTSTRAP -->
+    <script src="copyright.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
